@@ -1,0 +1,37 @@
+name: Test build (PR)
+
+# 注意：上游 doc 站点已归档到 docs_archive/upstream_docs_site/，本 workflow 指向归档路径。
+defaults:
+  run:
+    shell: bash
+    working-directory: ./docs_archive/upstream_docs_site
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'docs_archive/upstream_docs_site/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+    # Review gh actions docs if you want to further define triggers, paths, etc
+    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
+
+jobs:
+  test-build:
+    name: Build Docusaurus only
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: docs_archive/upstream_docs_site/package-lock.json
+
+      - name: Install
+        run: npm ci
+      - name: Build
+        run: npm run build

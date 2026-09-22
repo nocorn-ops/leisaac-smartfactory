@@ -1,0 +1,109 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+Visualization Manager:
+  Displays:
+    # 地图（map_server 用 transient_local 发布，订阅端也必须是 Transient Local，否则收不到）
+    - Class: rviz_default_plugins/Map
+      Name: Map
+      Enabled: true
+      Alpha: 1
+      Color Scheme: map
+      Draw Behind: true
+      Topic:
+        Value: /map
+        Depth: 1
+        Durability Policy: Transient Local
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+      Use Timestamp: false
+    # 坐标系（map→odom→base_footprint→base_lidar_link）
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Enabled: true
+      Show Names: true
+      Marker Scale: 0.5
+    # 激光（避障/定位用的就是它）
+    - Class: rviz_default_plugins/LaserScan
+      Name: LaserScan
+      Enabled: true
+      Topic:
+        Value: /scan
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+      Size (m): 0.02
+      Style: Flat Squares
+      Color: 255; 0; 0
+    - Class: rviz_default_plugins/Odometry
+      Name: Odometry
+      Enabled: false
+      Topic:
+        Value: /odom
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+      Keep: 100
+      Shape: Axes
+    # 全局路径（绿色）——点完 "2D Goal Pose" 后出现
+    - Class: rviz_default_plugins/Path
+      Name: Global Plan
+      Enabled: true
+      Topic:
+        Value: /plan
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+      Color: 0; 255; 0
+      Line Style: Lines
+      Line Width: 0.03
+    # 局部路径（黄色）
+    - Class: rviz_default_plugins/Path
+      Name: Local Plan
+      Enabled: true
+      Topic:
+        Value: /local_plan
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+      Color: 255; 255; 0
+      Line Style: Lines
+      Line Width: 0.03
+    # 局部代价地图边界（红色多边形；机器人实际避障用的滚动窗口）
+    - Class: rviz_default_plugins/Polygon
+      Name: Local Costmap
+      Enabled: true
+      Topic:
+        Value: /local_costmap/costmap_raw
+        Depth: 1
+        Durability Policy: Transient Local
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+      Color: 255; 0; 0
+      Alpha: 0.3
+    # 注：本仿真不发 /robot_description（机器人模型在 Isaac Sim 里显示），
+    # 所以不放 RobotModel，避免一直报红。
+  Global Options:
+    Fixed Frame: map
+    Frame Rate: 30
+    Background Color: 48; 48; 48
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    # 这两把工具就是发目标点用的：
+    #   SetInitialPose = "2D Pose Estimate"（给 AMCL 初始位姿；我们已用 initial_pose 自动设置）
+    #   SetGoal        = "2D Goal Pose"（点一下=位置，按住拖=到点朝向，松手即发送导航目标）
+    - Class: rviz_default_plugins/SetInitialPose
+    - Class: rviz_default_plugins/SetGoal
+  Views:
+    Current:
+      Class: rviz_default_plugins/TopDownOrtho
+      Name: Top-down
+      Scale: 70

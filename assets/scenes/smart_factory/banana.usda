@@ -1,0 +1,427 @@
+#usda 1.0
+(
+    defaultPrim = "Banana"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "Banana" (
+    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+)
+{
+    float physics:mass = 0.12
+
+    def Sphere "Seg0" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Banana/Seg0/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.015600000000000001
+        double3 xformOp:translate = (-0.09192533317427735, -0.04286548683761528, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </Banana/Seg0/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.93, 0.82, 0.22)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Sphere "Seg1" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Banana/Seg1/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.020266666666666665
+        double3 xformOp:translate = (-0.06594107736849672, -0.019741462630447626, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </Banana/Seg1/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.93, 0.82, 0.22)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Sphere "Seg2" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Banana/Seg2/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.02306666666666667
+        double3 xformOp:translate = (-0.034416387925330826, -0.005041258522141337, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </Banana/Seg2/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.93, 0.82, 0.22)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Sphere "Seg3" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Banana/Seg3/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.024
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </Banana/Seg3/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.93, 0.82, 0.22)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Sphere "Seg4" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Banana/Seg4/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.02306666666666667
+        double3 xformOp:translate = (0.03441638792533084, -0.005041258522141337, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </Banana/Seg4/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.93, 0.82, 0.22)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Sphere "Seg5" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Banana/Seg5/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.020266666666666665
+        double3 xformOp:translate = (0.06594107736849672, -0.019741462630447626, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </Banana/Seg5/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.93, 0.82, 0.22)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Sphere "Seg6" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Banana/Seg6/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.015600000000000001
+        double3 xformOp:translate = (0.09192533317427735, -0.04286548683761528, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </Banana/Seg6/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.93, 0.82, 0.22)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Capsule "Link0" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        uniform token axis = "Z"
+        double height = 0.03478364623373921
+        rel material:binding = </Banana/Link0/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.017933333333333332
+        float3 xformOp:rotateXYZ = (90, 0, 131.66667)
+        double3 xformOp:translate = (-0.07893320527138703, -0.03130347473403145, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </Banana/Link0/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.93, 0.82, 0.22)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Capsule "Link1" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        uniform token axis = "Z"
+        double height = 0.03478364623373922
+        rel material:binding = </Banana/Link1/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.021666666666666667
+        float3 xformOp:rotateXYZ = (90, 0, 115)
+        double3 xformOp:translate = (-0.050178732646913776, -0.012391360576294481, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </Banana/Link1/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.93, 0.82, 0.22)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Capsule "Link2" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        uniform token axis = "Z"
+        double height = 0.03478364623373921
+        rel material:binding = </Banana/Link2/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.023533333333333337
+        float3 xformOp:rotateXYZ = (90, 0, 98.333336)
+        double3 xformOp:translate = (-0.017208193962665413, -0.0025206292610706685, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </Banana/Link2/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.93, 0.82, 0.22)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Capsule "Link3" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        uniform token axis = "Z"
+        double height = 0.034783646233739224
+        rel material:binding = </Banana/Link3/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.023533333333333337
+        float3 xformOp:rotateXYZ = (90, 0, 81.666664)
+        double3 xformOp:translate = (0.01720819396266542, -0.0025206292610706685, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </Banana/Link3/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.93, 0.82, 0.22)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Capsule "Link4" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        uniform token axis = "Z"
+        double height = 0.0347836462337392
+        rel material:binding = </Banana/Link4/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.021666666666666667
+        float3 xformOp:rotateXYZ = (90, 0, 65)
+        double3 xformOp:translate = (0.050178732646913776, -0.012391360576294481, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </Banana/Link4/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.93, 0.82, 0.22)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Capsule "Link5" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        uniform token axis = "Z"
+        double height = 0.03478364623373921
+        rel material:binding = </Banana/Link5/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.017933333333333332
+        float3 xformOp:rotateXYZ = (90, 0, 48.333332)
+        double3 xformOp:translate = (0.07893320527138703, -0.03130347473403145, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </Banana/Link5/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.93, 0.82, 0.22)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Cylinder "Stem" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        uniform token axis = "Z"
+        double height = 0.03
+        rel material:binding = </Banana/Stem/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.006
+        float3 xformOp:rotateXYZ = (90, 0, 0)
+        double3 xformOp:translate = (0.10392533317427735, -0.03486548683761528, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </Banana/Stem/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.42, 0.36, 0.18)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+}
+

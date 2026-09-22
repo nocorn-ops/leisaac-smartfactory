@@ -1,0 +1,453 @@
+#usda 1.0
+(
+    defaultPrim = "StorageBox"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "StorageBox" (
+    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+)
+{
+    float physics:mass = 0.35
+
+    def Cube "Bottom" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </StorageBox/Bottom/Looks/M>
+        bool physics:collisionEnabled = 1
+        double size = 1
+        float3 xformOp:scale = (0.3, 0.2, 0.008)
+        double3 xformOp:translate = (0, 0, -0.076)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </StorageBox/Bottom/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.62, 0.64, 0.66)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Cube "WallXPos" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </StorageBox/WallXPos/Looks/M>
+        bool physics:collisionEnabled = 1
+        double size = 1
+        float3 xformOp:scale = (0.008, 0.2, 0.16)
+        double3 xformOp:translate = (0.146, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </StorageBox/WallXPos/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.62, 0.64, 0.66)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Cube "WallXNeg" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </StorageBox/WallXNeg/Looks/M>
+        bool physics:collisionEnabled = 1
+        double size = 1
+        float3 xformOp:scale = (0.008, 0.2, 0.16)
+        double3 xformOp:translate = (-0.146, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </StorageBox/WallXNeg/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.62, 0.64, 0.66)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Cube "WallYPos" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </StorageBox/WallYPos/Looks/M>
+        bool physics:collisionEnabled = 1
+        double size = 1
+        float3 xformOp:scale = (0.284, 0.008, 0.16)
+        double3 xformOp:translate = (0, 0.096, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </StorageBox/WallYPos/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.62, 0.64, 0.66)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Cube "WallYNeg" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </StorageBox/WallYNeg/Looks/M>
+        bool physics:collisionEnabled = 1
+        double size = 1
+        float3 xformOp:scale = (0.284, 0.008, 0.16)
+        double3 xformOp:translate = (0, -0.096, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </StorageBox/WallYNeg/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.62, 0.64, 0.66)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Cube "RimXPos" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </StorageBox/RimXPos/Looks/M>
+        bool physics:collisionEnabled = 1
+        double size = 1
+        float3 xformOp:scale = (0.012, 0.224, 0.01)
+        double3 xformOp:translate = (0.156, 0, 0.075)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </StorageBox/RimXPos/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.62, 0.64, 0.66)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Cube "RimXNeg" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </StorageBox/RimXNeg/Looks/M>
+        bool physics:collisionEnabled = 1
+        double size = 1
+        float3 xformOp:scale = (0.012, 0.224, 0.01)
+        double3 xformOp:translate = (-0.156, 0, 0.075)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </StorageBox/RimXNeg/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.62, 0.64, 0.66)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Cube "RimYPos" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </StorageBox/RimYPos/Looks/M>
+        bool physics:collisionEnabled = 1
+        double size = 1
+        float3 xformOp:scale = (0.276, 0.012, 0.01)
+        double3 xformOp:translate = (0, 0.10600000000000001, 0.075)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </StorageBox/RimYPos/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.62, 0.64, 0.66)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Cube "RimYNeg" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </StorageBox/RimYNeg/Looks/M>
+        bool physics:collisionEnabled = 1
+        double size = 1
+        float3 xformOp:scale = (0.276, 0.012, 0.01)
+        double3 xformOp:translate = (0, -0.10600000000000001, 0.075)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </StorageBox/RimYNeg/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.62, 0.64, 0.66)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Cylinder "HandleXPosBar" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        uniform token axis = "Z"
+        double height = 0.1
+        rel material:binding = </StorageBox/HandleXPosBar/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.006
+        float3 xformOp:rotateXYZ = (90, 0, 0)
+        double3 xformOp:translate = (0.16699999999999998, 0, 0.02)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </StorageBox/HandleXPosBar/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.62, 0.64, 0.66)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Cube "HandleXPosPostS" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </StorageBox/HandleXPosPostS/Looks/M>
+        bool physics:collisionEnabled = 1
+        double size = 1
+        float3 xformOp:scale = (0.015, 0.012, 0.012)
+        double3 xformOp:translate = (0.1535, -0.05, 0.02)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </StorageBox/HandleXPosPostS/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.62, 0.64, 0.66)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Cube "HandleXPosPostN" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </StorageBox/HandleXPosPostN/Looks/M>
+        bool physics:collisionEnabled = 1
+        double size = 1
+        float3 xformOp:scale = (0.015, 0.012, 0.012)
+        double3 xformOp:translate = (0.1535, 0.05, 0.02)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </StorageBox/HandleXPosPostN/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.62, 0.64, 0.66)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Cylinder "HandleXNegBar" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        uniform token axis = "Z"
+        double height = 0.1
+        rel material:binding = </StorageBox/HandleXNegBar/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.006
+        float3 xformOp:rotateXYZ = (90, 0, 0)
+        double3 xformOp:translate = (-0.16699999999999998, 0, 0.02)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </StorageBox/HandleXNegBar/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.62, 0.64, 0.66)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Cube "HandleXNegPostS" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </StorageBox/HandleXNegPostS/Looks/M>
+        bool physics:collisionEnabled = 1
+        double size = 1
+        float3 xformOp:scale = (0.015, 0.012, 0.012)
+        double3 xformOp:translate = (-0.1535, -0.05, 0.02)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </StorageBox/HandleXNegPostS/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.62, 0.64, 0.66)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Cube "HandleXNegPostN" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </StorageBox/HandleXNegPostN/Looks/M>
+        bool physics:collisionEnabled = 1
+        double size = 1
+        float3 xformOp:scale = (0.015, 0.012, 0.012)
+        double3 xformOp:translate = (-0.1535, 0.05, 0.02)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </StorageBox/HandleXNegPostN/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.62, 0.64, 0.66)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+}
+

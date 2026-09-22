@@ -1,0 +1,74 @@
+#usda 1.0
+(
+    defaultPrim = "Eggplant"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "Eggplant" (
+    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+)
+{
+    float physics:mass = 0.25
+
+    def Capsule "Body" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        uniform token axis = "Z"
+        double height = 0.13
+        rel material:binding = </Eggplant/Body/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.035
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </Eggplant/Body/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.18, 0.07, 0.26)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+
+    def Cylinder "Stem" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        uniform token axis = "Z"
+        double height = 0.035
+        rel material:binding = </Eggplant/Stem/Looks/M>
+        bool physics:collisionEnabled = 1
+        double radius = 0.007
+        double3 xformOp:translate = (0, 0, 0.1135)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def "Looks"
+        {
+            def Material "M"
+            {
+                token outputs:surface.connect = </Eggplant/Stem/Looks/M/Shader.outputs:surface>
+
+                def Shader "Shader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.3, 0.42, 0.16)
+                    float inputs:metallic = 0
+                    float inputs:roughness = 0.6
+                    token outputs:surface
+                }
+            }
+        }
+    }
+}
+
